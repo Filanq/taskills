@@ -17,20 +17,16 @@
                 <h2 class="title">Создайте аккаунт</h2>
                 <p>Добро пожаловать! Создайте аккаунт для получения доступа к услугам сайта</p>
                 <div>
-                    <label for="reg-sername__input" class="text-password__label">Фамилия</label>
                     <input id="reg-sername__input" name="sername" type="text" placeholder="Введите свою фамилию" required>
                 </div>
                 <div>
-                    <label for="reg-name__input" class="text-password__label">Имя</label>
                     <input id="reg-name__input" name="name" type="text" placeholder="Введите свое имя" required>
                 </div>
                 <div>
-                    <label for="reg-email__input" class="text-password__label">Почта</label>
                     <input id="reg-email__input" name="email" type="email" placeholder="Введите свою почту" required>
                 </div>
                 <div class="password-container__div">
                     <div>
-                        <label for="reg-password__input" class="text-password__label">Пароль</label>
                         <input id="reg-password__input" class="small-password__input" name="password" type="password" placeholder="Введите пароль" required>
                     </div>
                     <div id="reg-password-eye" class="form__eye pass-open pass-close" onclick="eyeFunc(`#${this.id}`, ['#reg-password__input', '#reg-password-again__input'])">
@@ -39,7 +35,6 @@
                     </div>
                 </div>
                 <div>
-                    <label for="reg-password-again__input" class="text-password__label">Повторите пароль</label>
                     <input id="reg-password-again__input" name="password_repeat" type="password" placeholder="Повторите пароль" required>
                 </div>
                 <div class="radio-container">
@@ -59,12 +54,10 @@
                 <h2 class="title">Вход</h2>
                 <p>Добро пожаловать! Войдите аккаунт для получения доступа к услугам сайта</p>
                 <div>
-                    <label for="log-email__input" class="text-password__label">Почта</label>
                     <input id="log-email__input" name="email" type="email" placeholder="Введите почту" required>
                 </div>
                 <div class="password-container__div">
                     <div>
-                        <label for="log-password__input" class="text-password__label">Пароль</label>
                         <input id="log-password__input" class="small-password__input" name="password" type="password" placeholder="Введите пароль" required>
                     </div>
                     <div id="log-password-eye" class="form__eye pass-open pass-close" onclick="eyeFunc(`#${this.id}`, ['#log-password__input'])">
