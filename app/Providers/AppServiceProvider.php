@@ -11,7 +11,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        define("__PROJECTDIR__", 'C:\\ПАПКИ\\ПРОЕКТЫ\\WebProjects\\taskills\\');
     }
 
     /**
