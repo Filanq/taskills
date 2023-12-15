@@ -197,12 +197,6 @@ h1::after{
     animation: shaking 1s linear infinite;
 }
 
-.loading__container p{
-    color: var(--colorWhite);
-    margin: 12px 0;
-    font-size: 320px;
-}
-
 /* steps */
 .step__container{
     display: flex;
