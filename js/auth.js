@@ -1,9 +1,9 @@
 const eyeFunc = (eyeId, inputId) => {
     for (i = 0; i < inputId.length; i++) {
-        input = $(`#${inputId[i]}`);
+        input = $(inputId[i]);
         input.attr('type', (input.attr('type') === 'password') ? 'text' : 'password');
     }
-    $(`#${eyeId}`).toggleClass('pass-close');
+    $(eyeId).toggleClass('pass-close');
 }
 
 const switchForm = (form) => {
