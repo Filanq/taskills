@@ -32,12 +32,12 @@ let remoteStream = null;
 
 // HTML elements
 const webcamButton = document.getElementById('webcamButton');
-const webcamVideo = document.getElementById('webcamVideo');
+const webcamVideo = document.getElementById('local');
 const callButton = document.getElementById('callButton');
 const callInput = document.getElementById('callInput');
 const answerButton = document.getElementById('answerButton');
-const remoteVideo = document.getElementById('remoteVideo');
-const hangupButton = document.getElementById('hangupButton');
+const remoteVideo = document.getElementById('remote');
+// const hangupButton = document.getElementById('hangupButton');
 
 // 1. Setup media sources
 
@@ -109,7 +109,7 @@ callButton.onclick = async () => {
         });
     });
 
-    hangupButton.disabled = false;
+    // hangupButton.disabled = false;
 };
 
 // 3. Answer the call with the unique ID

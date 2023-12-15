@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/call', function () {
-    return view('call');
+    return view('templates.call');
 })->name('call');
 
 Route::get('/', function () {
