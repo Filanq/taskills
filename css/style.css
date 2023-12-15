@@ -1,0 +1,320 @@
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"; /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+ 
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --colorDarkMain: #22457b;
+    --colorMain: #349eff;
+    --colorBlack: #212121;
+    --colorBlack07: #21212170;
+    --colorGrey: #5c5f63;
+    --colorGreyLight: #d9d9d9;
+    --colorWhite: #ffffff;
+    --titleBig: 60px;
+    --title: 40px;
+    --titleSmall: 24px;
+    --borderRadiusBig: 50px;
+    --borderRadius: 25px;
+    --borderRadiusSmall: 10px;
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    padding: 10px 10%;
+    width: 100%
+}
+
+.container {
+    width: 100%;
+    max-width: 1024px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.grid {
+    display: grid;
+}
+
+.gap-50 {
+    gap: 50px;
+}
+
+.gap-25 {
+    gap: 25px;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.title {
+    font-size: var(--title);
+}
+
+.title-line {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.title-line:after {
+    content: "";
+    display: flex;
+    width: 80px;
+    height: 3px;
+    background-color: var(--colorMain);
+    border-radius: 2px;
+    transition: all .2s ease-in-out;
+}
+
+.title_big {
+    font-size: var(--titleBig);
+}
+
+.title_small {
+    font-size: var(--titleSmall);
+}
+
+.title_white {
+    color: var(--colorWhite);
+}
+
+.link {
+    border-bottom: 1px solid transparent;
+    color: var(--colorMain);
+    text-decoration: none;
+    transition: .2s linear;
+    cursor: pointer;
+}
+
+.link:hover {
+    border-bottom: 1px solid var(--colorMain);
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: var(--colorMain);
+    color: var(--colorWhite);
+    transition: .2s background-color linear;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--colorBlack);
+}
+
+/* Forms */
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    padding: 15px;
+    border-radius: var(--borderRadius);
+	scroll-snap-align: start;
+}
+
+form > h2 {
+    margin: 16px 0;
+    text-align: center;
+    color: var(--colorBlack);
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+form > div .text-password__label {
+    position: relative;
+    inset: 31px auto auto 5px;
+    order: -1;
+    transform-origin: left top;
+    transition: all .15s linear;
+    color: var(--colorBlack07);
+    z-index: 1;
+    user-select: none;
+}
+
+form > div input:not(:placeholder-shown) ~ .text-password__label,
+form > div input:focus ~ .text-password__label,
+form > div.textarea-container__div textarea:not(:placeholder-shown) ~ .text-password__label,
+form > div.textarea-container__div textarea:focus ~ .text-password__label {
+    inset: 3px auto auto 5px;
+    transform: scale(0.8, 0.8);
+}
+
+form > div input:focus ~ .text-password__label,
+form > div.textarea-container__div textarea:focus ~ .text-password__label {
+    inset: 3px auto auto 5px;
+    color: var(--colorMain);
+}
+    
+form > div input,
+form > div.textarea-container__div textarea {
+    width: inherit;
+    padding: 10px 5px;
+    border-radius: var(--borderRadiusSmall);
+    font-size: 20px;
+    border: none;
+    outline: solid var(--colorGreyLight) 2px;
+    transition: outline-color .2s linear;
+}
+
+form > div input:focus,
+form > div.textarea-container__div textarea:focus {
+    outline-color: var(--colorMain);
+}
+    
+form > div.textarea-container__div textarea {
+    min-height: 70px;
+    height: 100px;
+    max-height: 200px;
+    resize: vertical;
+}
+
+.password-container__div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 11px;
+}
+
+.password-container__div > div:first-child {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form__eye {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 43px;
+    height: 43px;
+    padding: 10px;
+    border-radius: var(--borderRadiusSmall);
+    background-color: var(--colorWhite);
+    outline: solid var(--colorGreyLight) 2px;
+    transition: outline-color .2s linear;
+    cursor: pointer;
+    user-select: none;
+}
+
+.form__eye svg * {
+    fill: var(--colorBlack07);
+    transition: all .2s linear;
+}
+
+.form__eye:hover svg * {
+    fill: var(--colorMain);
+}
+
+.pass-open:not(.pass-close) {
+    outline-color: var(--colorMain);
+}
+
+.pass-open:not(.pass-close) svg * {
+    fill: var(--colorMain);
+}
+
+.pass-open > *:nth-child(1) {
+    display: none;
+}
+
+.pass-open > *:nth-child(2),
+.pass-close > *:nth-child(1) {
+    display: block;
+}
+
+.pass-close > *:nth-child(2) {
+    display: none;
+}
+
+form .radio-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 11px;
+    margin-top: 18px;
+}
+
+form .radio-container > div {
+    width: 100%;
+}
+
+form .radio-container input {
+    position: absolute;
+    z-index: -2;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+form .radio-container .radio__label {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 5px;
+    border-radius: var(--borderRadiusSmall);
+    font-size: 16px;
+    outline: solid var(--colorGreyLight) 2px;
+    color: var(--colorBlack07);
+    transition: all .2s linear;
+    cursor: pointer;
+    user-select: none;
+}
+
+form .radio-container input:checked + .radio__label {
+    outline-color: var(--colorMain);
+    color: var(--colorMain);
+}
+
+form > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 18px;
+    padding: 15px 5px;
+    border-radius: var(--borderRadiusSmall);
+    font-size: 18px;
+    border: none;
+    outline: solid #00000000 2px;
+    background-color: var(--colorMain);
+    color: var(--colorWhite);
+    transition: all .2s linear;
+    cursor: pointer;
+}
+
+form > button svg {
+    height: 16px;
+    width: auto;
+}
+
+form > button svg * {
+    fill: var(--colorWhite);
+    transition: fill .2s linear;
+}
+
+form > button:hover {
+    outline-color: var(--colorMain);
+    background-color: var(--colorWhite);
+    color: var(--colorMain);
+}
+
+form > button:hover svg * {
+    fill: var(--colorMain);
+}
+
+.form-leafer {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--colorGray);
+}
