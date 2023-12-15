@@ -11,4 +11,4 @@
 - composer install --ignore-platform-req=ext-fileinfo
 - npm i
 - php artisan serve
-- Заходим по адресу localhost:8000
+- Заходим по адресу 127.0.0.1:8000
