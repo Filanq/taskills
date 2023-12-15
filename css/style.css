@@ -416,20 +416,35 @@ h4{
     color: var(--colorWhite);
 }
 
+.text__dop_info--answer{
+    background-color: var(--colorDarkMain);
+}
+
 .block__dop_info--text{
     width: 100%;
     display: flex;
     flex-direction: row;
+    margin-top: 25px;
+
 }
 
 .input_btn{
     padding: 10px;
     border-radius: 10px;
     width: 100%;
+    margin-right: 10px;
 }
 
 .input_btn_push{
     border-radius: 10px;
+    width: 45px;
+    background-color: var(--colorMain);
+    background-image: url("../img/icons/arrow.svg");
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
 }
 
 
