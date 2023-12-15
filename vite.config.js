@@ -5,12 +5,11 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'js/call.js',
-                'css/style.css',
-                'css/normalize.css',
+                'resources/js/call.js',
+                'resources/css/style.css',
+                'resources/css/normalize.css',
             ],
             refresh: true,
-            publicDirectory: 'resources/'
         }),
     ],
 });
