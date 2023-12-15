@@ -138,6 +138,7 @@ form > div .text-password__label {
     color: var(--colorBlack07);
     z-index: 1;
     user-select: none;
+    pointer-events: none;
 }
 
 form > div input:not(:placeholder-shown) ~ .text-password__label,
