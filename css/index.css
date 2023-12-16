@@ -1,154 +1,3 @@
-/* HEADER */
-
-header {
-    width: 100%;
-    height: 70px;
-    padding: 0 10%;
-}
-
-.header-container {
-    position: sticky;
-    inset: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 1024px;
-    height: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    z-index: 2;
-}
-
-.header-logo {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    text-decoration: none;
-    color: var(--colorMain);
-    font-weight: 600;
-}
-
-.header-logo > svg {
-    height: 50px;
-    width: auto;
-}
-
-.header-burger {
-    position: relative;
-    inset: 0;
-    display: none;
-    min-width: 33px;
-    height: 33px;
-    border-radius: 6px;
-    background-color: var(--colorLiteMain);
-    cursor: pointer;
-    z-index: 2;
-}
-
-.header-burger > div:nth-child(1) {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 5px;
-    width: 100%;
-    height: 100%;
-    padding: 7px;
-    transition: all .2s linear;
-}
-
-.header-burger > div {
-    transition: opacity .2s linear;
-}
-
-.header-burger > div:nth-child(2) {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 7px;
-}
-
-.header-burger > div:nth-child(1) > div {
-    width: 7px;
-    height: 7px;
-    border: solid var(--colorMain) 2px;
-    border-radius: 5px;
-    transition: all .2s linear;
-}
-
-.open-menu__burger > div:nth-child(1),
-.header-burger > div:nth-child(2) {
-    opacity: 0;
-}
-
-.open-menu__burger > div:nth-child(2) {
-    opacity: 1;
-}
-
-.header-burger > div:nth-child(2) > div {
-    width: 27px;
-    height: 7px;
-    border: solid var(--colorMain) 2px;
-    border-radius: 5px;
-    transition: all .2s linear;
-}
-
-.header-burger:hover > div:nth-child(2) > div {
-    width: 36px;
-}
-
-.header-burger > div:nth-child(2) > div:nth-child(1) {
-    transform: rotate(45deg);
-}
-
-.header-burger > div:nth-child(2) > div:nth-child(2) {
-    transform: rotate(-45deg);
-    margin-top: -7px;
-}
-
-.header-burger:hover > div:nth-child(1) {
-    padding: 3px;
-    gap: 13px;
-}
-
-.header-menu__nav > ul {
-    display: flex;
-    gap: 20px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.header-menu__nav > ul > li > a {
-    transition: all .2s linear;
-}
-
-.header-menu__nav > ul > li:hover > a {
-    color: var(--colorMain);
-}
-
-.dark-fone {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #00000050;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity .2s linear;
-    z-index: 1;
-}
-
-.show-dark-fone {
-    opacity: 1;
-    pointer-events: visible;
-}
-
 /* MAIN */
 
 main {
@@ -336,6 +185,14 @@ main {
     fill: var(--colorMain);
 }
 
+.solo-category-container {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: var(--colorLiteMain);
+    font-size: 16px;
+}
+
 @media (max-width: 1280px) {
     .cat__section .category-container > a {
         font-size: 1.25vw;
@@ -379,52 +236,5 @@ main {
 
     .cat__section .category-container {
         --column-num: 2;
-    }
-}
-
-@media (max-width: 768px) {
-    .search__section > div.container {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .search__section form {
-        width: 100%;
-    }
-
-    .header-burger {
-        display: flex;
-    }
-
-    .header-menu__nav {
-        position: fixed;
-        inset: 75px -150px auto auto;
-        width: 150px;
-        border-radius: 6px;
-        transition: inset .2s linear;
-        z-index: 2;
-    }
-
-    .open-menu__nav {
-        inset: 75px 10% auto auto;
-        overflow: hidden;
-    }
-
-    .header-menu__nav > ul {
-        flex-direction: column;
-        text-align: center;
-        gap: 0;
-    }
-
-    .header-menu__nav > ul > li > a {
-        display: block;
-        padding: 10px;
-        background-color: var(--colorLiteMain);
-        transition: all .2s linear;
-    }
-
-    .header-menu__nav > ul > li:hover > a {
-        color: var(--colorWhite);
-        background-color: var(--colorMain);
     }
 }

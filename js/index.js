@@ -1,6 +1,3 @@
-const toggleBurger = () => {
-    for (const el of [['.header-menu__nav', 'open-menu__nav'], ['.dark-fone', 'show-dark-fone'], ['.header-burger', 'open-menu__burger']]) $(el[0]).toggleClass(el[1]);
-}
 const swiper = new Swiper('.swiper', {
     speed: 500,
     loop: true,
@@ -10,6 +7,14 @@ const swiper = new Swiper('.swiper', {
     spaceBetween: 10,
     pagination: {
         el: '.swiper-pagination',
+        clickable: true,
+    },
+});
+const swiper2 = new Swiper('.swiper2', {
+    speed: 500,
+    spaceBetween: 10,
+    pagination: {
+        el: '.swiper2-pagination',
         clickable: true,
     },
 });
