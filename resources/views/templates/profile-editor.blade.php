@@ -1,38 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>В личном кабинете можно: просматривать врачей, свои визиты и др</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+    <x-head>Редактировать профиль</x-head>
 </head>
 <body>
     <div class="section">
         <div class="container">
-            <h3>Редактировать ррофиль</h3>
+            <h3>Редактировать профиль</h3>
             <div class="wrap__office">
                 <div class="block__office block__office--my_info">
-                    <p class="my_name">Утяцкий Владсилав</p>
-                    <img class="my_avatar" src="https://sun1-91.userapi.com/impg/vxWb0jvqGTFLkN1XsmDV7OY2YGi2d9Sp1e4YHQ/Edo1a9FAzeA.jpg?size=453x604&quality=95&sign=ed4681dc8591ba3fd0dd92065a88f362&c_uniq_tag=h75RLS71sPJy0VLPqhYCD3zZNuqz8HD7kWzwH-_2OsI&type=album" alt="avatar">
+                    <p class="my_name">{{ $user->firstname }} {{ $user->surname }}</p>
+                    <img class="my_avatar" src="{{ asset('img/avatars/' . $user->avatar) }}" alt="Аватар">
                     <table class="wrap__my_info">
                         <tr>
                             <th class="info__th">Возраст</th>
-                            <td class="info__td">32</td>
+                            <td class="info__td">{{ $user->age }}</td>
                         </tr>
                         <tr>
                             <th class="info__th">Пол</th>
-                            <td class="info__td">Мужской</td>
+                            <td class="info__td">{{ $user->sex }}</td>
                         </tr>
                         <tr>
                             <th class="info__th">Семейное положение</th>
-                            <td class="info__td">Женат</td>
+                            <td class="info__td">{{ $user->status }}</td>
                         </tr>
                         <tr>
                             <th class="info__th">Местоположение</th>
-                            <td class="info__td">Россия, Москва</td>
+                            <td class="info__td">{{ $user->location }}</td>
                         </tr>
                     </table>
+
+                    @if(!$is_guest)
+                        <a class="btn btn--my_info" href="#">Редактировать</a>
+                    @elseif($is_guest && auth()->check())
+                        <a class="btn btn--my_info" href="tel:+7952812">Позвонить</a>
+                    @endif
                 </div>
                 <div class="wrap__info_office">
                     <div class="block__office block__office--editor">
@@ -40,13 +42,15 @@
                             <h4>Аккаунт</h4>
                             <form class="wrap__dop_info wrap__dop_info--editor" action="" method="post">
                                 <div>
-                                    <label class="label_btn_input" for="#old_password">Старый пароль<span class="red">*</span></label>
+                                    <label class="label_btn_input" for="old_password">Старый пароль<span class="red">*</span></label>
                                     <input class="btn_input" id="old_password" type="password" placeholder="Пароль">
                                 </div>
                                 <div>
-                                    <label class="label_btn_input" for="#new_password">Новый пароль<span class="red">*</span></label>
+                                    <label class="label_btn_input" for="new_password">Новый пароль<span class="red">*</span></label>
                                     <input class="btn_input" id="new_password" type="password" placeholder="Пароль">
                                 </div>
+
+                                <input class="btn_input--push" type="submit" value="Сохранить">
                             </form>
                         </div>
                         <div>
@@ -92,7 +96,7 @@
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
         </div>

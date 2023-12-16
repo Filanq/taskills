@@ -9,6 +9,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
@@ -47,7 +48,7 @@ class RegisteredUserController extends Controller
             'email.unique' => 'Аккаунт для этой почты уже существует!',
             'password.required' => 'Введите пароль!',
             'password.min' => 'Ваш пароль должен быть не меньше 8 символов!',
-            'password.max' => 'Ваш пароль привысил лимит!',
+            'password.max' => 'Ваш пароль превысил лимит!',
         ]);
 
         if($request->input('password_confirm') !== $request->input('password')){
@@ -62,6 +63,11 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'status' => $request->input('status')
+        ]);
+        DB::table('users_data')->insert([
+            "user_id" => $user->id,
+            "avatar" => "avatar.svg",
+            "favorites" => "[]"
         ]);
 
         Auth::login($user);
