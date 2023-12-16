@@ -46,6 +46,10 @@
     --borderRadiusSmall: 10px
 }
 
+body{
+    overflow-x: hidden;
+}
+
 .section{
     display: flex;
     justify-content: center;
@@ -766,6 +770,41 @@ h4{
     background-size: cover;
 }
 
+/* notification */
+.notification{
+    padding: 30px;
+    background-color: var(--colorLiteMain);
+    position: fixed;
+    right: -300px;
+    top: 50px;
+    text-decoration: none;
+    color: var(--colorBlack);
+    border-bottom-left-radius: 20px;
+    z-index: 4;
+    border: 1px solid var(--colorMain);
+    color: var(--colorDarkMain);
+}
+
+.notification > div{
+    width: 25px;
+    height: 25px;
+    background-image: url("../img/icons/cross.svg");
+    background-size: cover;
+    border-radius: 50%;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    transform: .5s right line;
+}
+
+/* notification-active */
+.notification--active{
+    right: 0px;
+    transform: .5s right line;
+}
+
+
+/* media */
 @media (max-width: 768px) {
     /* экран загрузки */
     h1{
