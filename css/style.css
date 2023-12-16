@@ -64,6 +64,20 @@ body{
     padding-bottom: 50px
 }
 
+a {
+    text-decoration: none;
+    color: var(--colorBlack);
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
 .grid {
     display: grid
 }
