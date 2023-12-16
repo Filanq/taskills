@@ -5,7 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>В личном кабинете можно: просматривать врачей, свои визиты и др</title>
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- slider -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            direction: 'vertical',
+            loop: true,
+            enabled: false,
+            minimumVelocity: 0.02,
+            momentum: true,
+            momentumBounce: true,
+            momentumBounceRatio: 1,
+            momentumRatio: 1,
+            momentumVelocityRatio: 1,
+            sticky: false            
+        });
+    </script>
 </head>
 <body>
     <div class="section">
@@ -13,7 +31,7 @@
             <h3>Профиль</h3>
             <div class="wrap__office">
                 <div class="block__office block__office--my_info">
-                    <p class="my_name">Утяцкий В.C.</p>
+                    <p class="my_name">Утяцкий Владсилав</p>
                     <img class="my_avatar" src="https://sun1-91.userapi.com/impg/vxWb0jvqGTFLkN1XsmDV7OY2YGi2d9Sp1e4YHQ/Edo1a9FAzeA.jpg?size=453x604&quality=95&sign=ed4681dc8591ba3fd0dd92065a88f362&c_uniq_tag=h75RLS71sPJy0VLPqhYCD3zZNuqz8HD7kWzwH-_2OsI&type=album" alt="avatar">
                     <table class="wrap__my_info">
                         <tr>
@@ -21,26 +39,66 @@
                             <td class="info__td">32</td>
                         </tr>
                         <tr>
+                            <th class="info__th">Пол</th>
+                            <td class="info__td">Мужской</td>
+                        </tr>
+                        <tr>
                             <th class="info__th">Образование</th>
                             <td class="info__td">Медецинский университет имени я хз кого</td>
                         </tr>
                         <tr>
-                            <th class="info__th">Статус</th>
-                            <td class="info__td">Женат</td>
+                            <th class="info__th">Семейное положение</th>
+                            <td class="info__td">я хз</td>
                         </tr>
                         <tr>
                             <th class="info__th">Местоположение</th>
                             <td class="info__td">Россия, Москва</td>
                         </tr>
-                        <tr>
-                            <th class="info__th">Профессионал</th>
-                            <td class="info__td">Средный</td>
-                        </tr>
                     </table>
 
-                    <a class="btn btn--my_info" href="tel:+7952812">Позвонить</a>
+                    <a class="btn btn--my_info" href="#">Редактировать</a>
                 </div>
                 <div class="wrap__info_office">
+                    <div class="block__office swiper">
+                        <h4>Врачи</h4>
+                        <div class="wrap__dop_info--doctors_card swiper-wrapper">
+                            <a class="block__dop_info--doctors_card swiper-slide" href="#">
+                                <img class="avatat__dop_info--doctor" src="https://avatars.mds.yandex.net/get-images-cbir/1347593/GNbOEa-yWp4oSklaw3dRtQ6882/ocr" alt="doctor_photo">
+                                <span>Гинеколог</span>
+                            </a>
+
+                            <a class="block__dop_info--doctors_card swiper-slide" href="#">
+                                <img class="avatat__dop_info--doctor" src="https://heart.anichkov.ru/upload/landing/415/k552yo7los7vq97348s300k7warhbqrk/Булохов_Александр_Николаевич_1@1x.png" alt="doctor_photo">
+                                <span>Уролог</span>
+                            </a>
+
+                            <a class="block__dop_info--doctors_card swiper-slide" href="#">
+                                <img class="avatat__dop_info--doctor" src="https://sun9-17.userapi.com/impg/lwuQeJtmDFJzVSxLIeZ2e6mN029WOHDUBdtFCg/YP914oGy0lM.jpg?size=1920x1080&quality=95&sign=3f83893fbed7586e5356178b8c10a38e&type=album" alt="doctor_photo">
+                                <span>Проктолог</span>
+                            </a>
+
+                            <a class="block__dop_info--doctors_card swiper-slide" href="#">
+                                <img class="avatat__dop_info--doctor" src="https://sun9-58.userapi.com/impg/7MoOlLnnaLGX3_yKwoNVOVlD7qYqsr1rLkiGnQ/67GzC89WNYU.jpg?size=1080x1920&quality=95&sign=2b83175556478e09f5c7cbfcd3131650&type=album" alt="doctor_photo">
+                                <span>Гинеколог</span>
+                            </a>
+
+                            <a class="block__dop_info--doctors_card swiper-slide" href="#">
+                                <img class="avatat__dop_info--doctor" src="https://sun9-58.userapi.com/impg/7MoOlLnnaLGX3_yKwoNVOVlD7qYqsr1rLkiGnQ/67GzC89WNYU.jpg?size=1080x1920&quality=95&sign=2b83175556478e09f5c7cbfcd3131650&type=album" alt="doctor_photo">
+                                <span>Гинеколог</span>
+                            </a>
+
+                            <a class="block__dop_info--doctors_card swiper-slide" href="#">
+                                <img class="avatat__dop_info--doctor" src="https://sun9-58.userapi.com/impg/7MoOlLnnaLGX3_yKwoNVOVlD7qYqsr1rLkiGnQ/67GzC89WNYU.jpg?size=1080x1920&quality=95&sign=2b83175556478e09f5c7cbfcd3131650&type=album" alt="doctor_photo">
+                                <span>Гинеколог</span>
+                            </a>
+
+                            <a class="block__dop_info--doctors_card swiper-slide" href="#">
+                                <img class="avatat__dop_info--doctor" src="https://sun9-58.userapi.com/impg/7MoOlLnnaLGX3_yKwoNVOVlD7qYqsr1rLkiGnQ/67GzC89WNYU.jpg?size=1080x1920&quality=95&sign=2b83175556478e09f5c7cbfcd3131650&type=album" alt="doctor_photo">
+                                <span>Гинеколог</span>
+                            </a>
+                        </div>                        
+                    </div>
+
                     <div class="block__office">
                         <h4>История болезней</h4>
                         <div class="wrap__dop_info wrap__dop_info--disease">
@@ -79,48 +137,6 @@
                                 <span>29.09.2009</span>
                             </a>
                         </div>
-                    </div>
-
-                    <div class="block__office block__office--sms">
-                        <h4>Переписка с врачом</h4>
-                        <div class="wrap__dop_info--sms">
-                            <div class="block__dop_info--sms">
-                                <img class="avatar__dop_info" src="https://sun9-57.userapi.com/impg/ZwopBDVcqD1FJYOkKrT4mJkGjnVlVybjfC-WLQ/0UkXU2GNRvM.jpg?size=490x523&quality=95&sign=b6b9251afe9b2c945b20283968cc15a7&type=album" alt="avatar">
-                                <p class="text__dop_info">Добрый день хотелось бы к вам записаться на прием в 4 утра. Свободны ли вы в это время? Живот сильно болит</p>
-                            </div>
-                            <div class="block__dop_info--sms--answer">
-                                <img class="avatar__dop_info avatar__dop_info--answer" src="https://sun1-91.userapi.com/impg/vxWb0jvqGTFLkN1XsmDV7OY2YGi2d9Sp1e4YHQ/Edo1a9FAzeA.jpg?size=453x604&quality=95&sign=ed4681dc8591ba3fd0dd92065a88f362&c_uniq_tag=h75RLS71sPJy0VLPqhYCD3zZNuqz8HD7kWzwH-_2OsI&type=album" alt="avatar">
-                                <p class="text__dop_info text__dop_info--answer">Ну да. Я же не сплю... Хакатон taskills пишу</p>
-                            </div>
-                            <div class="block__dop_info--sms">
-                                <img class="avatar__dop_info" src="https://sun9-57.userapi.com/impg/ZwopBDVcqD1FJYOkKrT4mJkGjnVlVybjfC-WLQ/0UkXU2GNRvM.jpg?size=490x523&quality=95&sign=b6b9251afe9b2c945b20283968cc15a7&type=album" alt="avatar">
-                                <p class="text__dop_info ">Говорю живот у меня болит</p>
-                            </div>
-                            <div class="block__dop_info--sms--answer">
-                                <img class="avatar__dop_info avatar__dop_info--answer" src="https://sun1-91.userapi.com/impg/vxWb0jvqGTFLkN1XsmDV7OY2YGi2d9Sp1e4YHQ/Edo1a9FAzeA.jpg?size=453x604&quality=95&sign=ed4681dc8591ba3fd0dd92065a88f362&c_uniq_tag=h75RLS71sPJy0VLPqhYCD3zZNuqz8HD7kWzwH-_2OsI&type=album" alt="avatar">
-                                <p class="text__dop_info text__dop_info--answer">А я тут причем. Отстань я еще BACK не начинал (T⌓T)</p>
-                            </div>
-                            <div class="block__dop_info--sms">
-                                <img class="avatar__dop_info" src="https://sun9-57.userapi.com/impg/ZwopBDVcqD1FJYOkKrT4mJkGjnVlVybjfC-WLQ/0UkXU2GNRvM.jpg?size=490x523&quality=95&sign=b6b9251afe9b2c945b20283968cc15a7&type=album" alt="avatar">
-                                <p class="text__dop_info ">Говорю живот у меня болит</p>
-                            </div>
-                            <div class="block__dop_info--sms--answer">
-                                <img class="avatar__dop_info avatar__dop_info--answer" src="https://sun1-91.userapi.com/impg/vxWb0jvqGTFLkN1XsmDV7OY2YGi2d9Sp1e4YHQ/Edo1a9FAzeA.jpg?size=453x604&quality=95&sign=ed4681dc8591ba3fd0dd92065a88f362&c_uniq_tag=h75RLS71sPJy0VLPqhYCD3zZNuqz8HD7kWzwH-_2OsI&type=album" alt="avatar">
-                                <p class="text__dop_info text__dop_info--answer">А я тут причем. Отстань я еще BACK не начинал (T⌓T)</p>
-                            </div>
-                            <div class="block__dop_info--sms">
-                                <img class="avatar__dop_info" src="https://sun9-57.userapi.com/impg/ZwopBDVcqD1FJYOkKrT4mJkGjnVlVybjfC-WLQ/0UkXU2GNRvM.jpg?size=490x523&quality=95&sign=b6b9251afe9b2c945b20283968cc15a7&type=album" alt="avatar">
-                                <p class="text__dop_info ">Говорю живот у меня болит</p>
-                            </div>
-                            <div class="block__dop_info--sms--answer">
-                                <img class="avatar__dop_info avatar__dop_info--answer" src="https://sun1-91.userapi.com/impg/vxWb0jvqGTFLkN1XsmDV7OY2YGi2d9Sp1e4YHQ/Edo1a9FAzeA.jpg?size=453x604&quality=95&sign=ed4681dc8591ba3fd0dd92065a88f362&c_uniq_tag=h75RLS71sPJy0VLPqhYCD3zZNuqz8HD7kWzwH-_2OsI&type=album" alt="avatar">
-                                <p class="text__dop_info text__dop_info--answer">А я тут причем. Отстань я еще BACK не начинал (T⌓T)</p>
-                            </div>
-                        </div>
-                        <form action="#" method="post" class="block__dop_info--text">
-                            <input class="input_btn" type="text" placeholder="Сообщение...">
-                            <input class="input_btn_push" type="submit" value>
-                        </form>
                     </div>
                 </div>
             </div>

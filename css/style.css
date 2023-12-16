@@ -31,7 +31,7 @@
 }
 
 :root {
-    --colorDarkMain: #22457b;
+    --colorLiteMain: #d2eaff;
     --colorMain: #349eff;
     --colorBlack: #212121;
     --colorGrey: #5c5f63;
@@ -470,14 +470,20 @@ h4{
     display: flex;
     flex-direction: row;
     margin-top: 25px;
-
 }
 
 .input_btn{
-    padding: 10px;
-    border-radius: 10px;
-    width: 100%;
     margin-right: 10px;
+    width: inherit;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    border: none;
+    border-bottom: var(--colorBlack) 1px solid;
+    outline: solid #00000000 1px;
+    transition: all .2s linear;
+    border-bottom-left-radius: 0 ;
+    border-bottom-right-radius: 0;
 }
 
 .input_btn_push{
@@ -492,6 +498,127 @@ h4{
     cursor: pointer;
 }
 
+/* doctors cards */
+.wrap__dop_info--doctors_card{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-bottom: 10px;
+    height: fit-content !important;
+}
+
+.swiper{
+    margin: 0;
+}
+
+.wrap__dop_info--doctors_card::-webkit-scrollbar {
+    height: 6px;               
+}
+
+.wrap__dop_info--doctors_card::-webkit-scrollbar-track {
+    background: none;
+}
+
+.wrap__dop_info--doctors_card::-webkit-scrollbar-thumb {
+    background-color: var(--colorMain); 
+    border-radius: 30px;      
+}
+
+.block__dop_info--doctors_card{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    position: relative;
+}   
+
+.block__dop_info--doctors_card > span{
+    margin-top: 8px;
+    color: black;
+    /* padding-left: 20px; */
+}
+
+/* .block__dop_info--doctors_card > span::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background-image: url('../img/icons/chain.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+} */
+
+
+.avatat__dop_info--doctor{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+}
+
+/* efitor */
+.wrap__dop_info--editor{
+    padding: 0;
+}
+
+.label_btn_input{
+    font-size: 16px;
+
+}
+
+.red{
+    color: red;
+}
+
+.btn_input{
+    max-width: 400px;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: var(--colorGreyLight);
+    border: none;
+    outline: solid #00000000 1px;
+    transition: all .2s linear;
+    margin-top: 6px;
+}
+
+.btn_input--push{
+    background-color: var(--colorMain);
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    width: fit-content;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.block__office--editor{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.btn_input:focus{
+    outline-color: var(--colorMain);
+    color: var(--colorMain);
+    background-color: #f5fafe;
+}
+
+.wrap__dop_info--editor > div{
+    display: flex;
+    flex-direction: column;
+}
 
 @media (max-width: 768px) {
     /* экран загрузки */
