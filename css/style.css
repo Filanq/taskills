@@ -284,6 +284,7 @@ h3{
     border-radius: 15px;
     padding: 25px !important;
     box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
+    height: fit-content;
 }
 
 .block__office--my_info{
@@ -367,44 +368,28 @@ h4{
     margin: 0;
     text-decoration: none;
     color: var(--colorBlack);
+    transition: color .15s linear;
+}
+
+.block__dop_info:hover{
+    color: var(--colorMain);
+    transition: color .15s linear;
 }
 
 .block__dop_info::after{
     content: '';
     position: absolute;
-    left: -18px;
-    top: 4px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: var(--colorMain);    
+    left: -20px;
+    top: 1px;
+    width: 15px;
+    height: 15px;
+    background-image: url("../img/icons/downloads.svg");   
+    background-position: center;
+    background-size: cover;
 }
 
 .block__dop_info p{
     margin: 0;
-}
-
-.wrap__dop_info--disease{
-    padding: 0;
-    
-}
-
-.block__dop_info--disease::after{
-    display: none;
-}
-
-.block__dop_info--disease p{
-    position: relative;
-}
-
-.block__dop_info--disease p::after{
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: var(--colorMain);
 }
 
 .wrap__dop_info--sms{
@@ -636,6 +621,18 @@ h4{
     gap: 40px;
 }
 
+.h4__and_all{
+    display: flex;
+    justify-content: space-between;
+}
+
+.h4__and_all > a{
+    height: fit-content;
+    text-decoration: none;
+    color: var(--colorMain);
+    position: relative;
+}
+
 .btn_input:focus{
     outline-color: var(--colorMain);
     color: var(--colorMain);
@@ -738,6 +735,36 @@ h4{
     border-radius: 20px;
 }
 
+/* recommend */
+.wrap__info_office--recomend{
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-areas: "a b";
+}
+
+.wrap__dop_info--disease_str{
+    width: 100%;
+}
+
+.h4__and_plus{
+    display: flex;
+    justify-content: space-between;
+}
+
+.h4__and_plus > a{
+    position: relative;
+}
+
+.h4__and_plus > a::after{
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 30px;
+    height: 30px;
+    background-image: url("../img/icons/plus.svg");
+    background-position: center;
+    background-size: cover;
+}
 
 @media (max-width: 768px) {
     /* экран загрузки */
