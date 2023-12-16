@@ -5,25 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>В личном кабинете можно: просматривать врачей, свои визиты и др</title>
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="css/style.css">
 
     <!-- slider -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        const swiper = new Swiper('.swiper', {
-            direction: 'vertical',
-            loop: true,
-            enabled: false,
-            minimumVelocity: 0.02,
-            momentum: true,
-            momentumBounce: true,
-            momentumBounceRatio: 1,
-            momentumRatio: 1,
-            momentumVelocityRatio: 1,
-            sticky: false            
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" ></script>
 </head>
 <body>
     <div class="section">
@@ -59,40 +44,40 @@
                     <a class="btn btn--my_info" href="#">Редактировать</a>
                 </div>
                 <div class="wrap__info_office">
-                    <div class="block__office swiper">
+                    <div class="swiper mySwiper block__office ">
                         <h4>Врачи</h4>
-                        <div class="wrap__dop_info--doctors_card swiper-wrapper">
-                            <a class="block__dop_info--doctors_card swiper-slide" href="#">
+                        <div class="swiper-wrapper wrap__dop_info--doctors_card">
+                            <a class="swiper-slide block__dop_info--doctors_card" href="#">
                                 <img class="avatat__dop_info--doctor" src="https://avatars.mds.yandex.net/get-images-cbir/1347593/GNbOEa-yWp4oSklaw3dRtQ6882/ocr" alt="doctor_photo">
                                 <span>Гинеколог</span>
                             </a>
 
-                            <a class="block__dop_info--doctors_card swiper-slide" href="#">
+                            <a class="swiper-slide block__dop_info--doctors_card" href="#">
                                 <img class="avatat__dop_info--doctor" src="https://heart.anichkov.ru/upload/landing/415/k552yo7los7vq97348s300k7warhbqrk/Булохов_Александр_Николаевич_1@1x.png" alt="doctor_photo">
                                 <span>Уролог</span>
                             </a>
 
-                            <a class="block__dop_info--doctors_card swiper-slide" href="#">
+                            <a class="swiper-slide block__dop_info--doctors_card" href="#">
                                 <img class="avatat__dop_info--doctor" src="https://sun9-17.userapi.com/impg/lwuQeJtmDFJzVSxLIeZ2e6mN029WOHDUBdtFCg/YP914oGy0lM.jpg?size=1920x1080&quality=95&sign=3f83893fbed7586e5356178b8c10a38e&type=album" alt="doctor_photo">
                                 <span>Проктолог</span>
                             </a>
 
-                            <a class="block__dop_info--doctors_card swiper-slide" href="#">
-                                <img class="avatat__dop_info--doctor" src="https://sun9-58.userapi.com/impg/7MoOlLnnaLGX3_yKwoNVOVlD7qYqsr1rLkiGnQ/67GzC89WNYU.jpg?size=1080x1920&quality=95&sign=2b83175556478e09f5c7cbfcd3131650&type=album" alt="doctor_photo">
+                            <a class="swiper-slide block__dop_info--doctors_card" href="#">
+                                <img class="avatat__dop_info--doctor" src="https://avatars.mds.yandex.net/get-images-cbir/1347593/GNbOEa-yWp4oSklaw3dRtQ6882/ocr" alt="doctor_photo">
                                 <span>Гинеколог</span>
                             </a>
 
-                            <a class="block__dop_info--doctors_card swiper-slide" href="#">
-                                <img class="avatat__dop_info--doctor" src="https://sun9-58.userapi.com/impg/7MoOlLnnaLGX3_yKwoNVOVlD7qYqsr1rLkiGnQ/67GzC89WNYU.jpg?size=1080x1920&quality=95&sign=2b83175556478e09f5c7cbfcd3131650&type=album" alt="doctor_photo">
-                                <span>Гинеколог</span>
+                            <a class="swiper-slide block__dop_info--doctors_card" href="#">
+                                <img class="avatat__dop_info--doctor" src="https://heart.anichkov.ru/upload/landing/415/k552yo7los7vq97348s300k7warhbqrk/Булохов_Александр_Николаевич_1@1x.png" alt="doctor_photo">
+                                <span>Уролог</span>
                             </a>
 
-                            <a class="block__dop_info--doctors_card swiper-slide" href="#">
-                                <img class="avatat__dop_info--doctor" src="https://sun9-58.userapi.com/impg/7MoOlLnnaLGX3_yKwoNVOVlD7qYqsr1rLkiGnQ/67GzC89WNYU.jpg?size=1080x1920&quality=95&sign=2b83175556478e09f5c7cbfcd3131650&type=album" alt="doctor_photo">
-                                <span>Гинеколог</span>
+                            <a class="swiper-slide block__dop_info--doctors_card" href="#">
+                                <img class="avatat__dop_info--doctor" src="https://sun9-17.userapi.com/impg/lwuQeJtmDFJzVSxLIeZ2e6mN029WOHDUBdtFCg/YP914oGy0lM.jpg?size=1920x1080&quality=95&sign=3f83893fbed7586e5356178b8c10a38e&type=album" alt="doctor_photo">
+                                <span>Проктолог</span>
                             </a>
 
-                            <a class="block__dop_info--doctors_card swiper-slide" href="#">
+                            <a class="swiper-slide block__dop_info--doctors_card" href="#">
                                 <img class="avatat__dop_info--doctor" src="https://sun9-58.userapi.com/impg/7MoOlLnnaLGX3_yKwoNVOVlD7qYqsr1rLkiGnQ/67GzC89WNYU.jpg?size=1080x1920&quality=95&sign=2b83175556478e09f5c7cbfcd3131650&type=album" alt="doctor_photo">
                                 <span>Гинеколог</span>
                             </a>
@@ -142,5 +127,21 @@
             </div>
         </div>
     </div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          loop: true,
+          slidesPerView: 4,
+          centeredSlides: true,
+          spaceBetween: 30,
+          grabCursor: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        });
+      </script>
 </body>
 </html>

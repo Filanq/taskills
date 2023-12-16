@@ -279,7 +279,7 @@ h3{
 
 .block__office{
     border-radius: 15px;
-    padding: 25px;
+    padding: 25px !important;
     box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -498,63 +498,65 @@ h4{
     cursor: pointer;
 }
 
+.swiper{
+    width: 100%;
+}
+
 /* doctors cards */
 .wrap__dop_info--doctors_card{
-    width: 100%;
+    width: 100% !important;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     gap: 20px;
     padding-bottom: 10px;
     height: fit-content !important;
-}
-
-.swiper{
-    margin: 0;
-}
-
-.wrap__dop_info--doctors_card::-webkit-scrollbar {
-    height: 6px;               
-}
-
-.wrap__dop_info--doctors_card::-webkit-scrollbar-track {
-    background: none;
-}
-
-.wrap__dop_info--doctors_card::-webkit-scrollbar-thumb {
-    background-color: var(--colorMain); 
-    border-radius: 30px;      
+    cursor: pointer;
+    position: relative
 }
 
 .block__dop_info--doctors_card{
-    width: fit-content;
-    display: flex;
+    width: fit-content !important;
+    display: flex !important;
     flex-direction: column;
     align-items: center;
     gap: 5px;
     text-decoration: none;
     position: relative;
-}   
+    margin: 0 !important;
+    padding-right: 30px;
+}  
+
+.block__dop_info--doctors_card > span::after{
+    content: '';
+    position: inherit;
+    background-color: var(--colorMain);
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    left: 0px;
+    bottom: -3px;
+    transition: 0.2s linear width;
+}
+
+.block__dop_info--doctors_card:hover > span::after{
+    content: '';
+    position: inherit;
+    background-color: var(--colorMain);
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    right: 0px;
+    bottom: -3px;
+    transition: 0.2s linear width;
+}
 
 .block__dop_info--doctors_card > span{
     margin-top: 8px;
     color: black;
-    /* padding-left: 20px; */
+    pointer-events: none;
+    position: relative;
 }
-
-/* .block__dop_info--doctors_card > span::after{
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 12px;
-    height: 12px;
-    background-image: url('../img/icons/chain.svg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat; 
-} */
-
 
 .avatat__dop_info--doctor{
     width: 100px;
@@ -565,7 +567,29 @@ h4{
     pointer-events: none;
 }
 
-/* efitor */
+.mySwiper::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 100%;
+    background-color: var(--colorWhite);
+    z-index: 3;
+}
+
+.mySwiper::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 25px;
+    height: 100%;
+    background-color: var(--colorWhite);
+    z-index: 3;
+}
+
+/* editor */
 .wrap__dop_info--editor{
     padding: 0;
 }
