@@ -150,15 +150,6 @@ header {
     pointer-events: visible;
 }
 @media (max-width: 768px) {
-    .search__section > div.container {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .search__section form {
-        width: 100%;
-    }
-
     .header-burger {
         display: flex;
     }
