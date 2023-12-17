@@ -155,12 +155,13 @@ main {
     gap: calc(var(--column-num) * 3.5px);
 }
 
-.cat__section .category-container > a {
+.cat__section .category-container > div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
     padding: 15px;
+    border: solid #00000000 1px;
     border-radius: 15px;
     background-color: var(--colorLiteMain);
     color: var(--colorMain);
@@ -168,29 +169,84 @@ main {
     text-transform: uppercase;
     text-align: center;
     font-size: 16px;
+    transition: border-color .2s linear;
+    cursor: pointer;
 }
 
-.cat__section .category-container > a:hover > svg {
+.selected-category {
+    border-color: var(--colorMain)!important;
+}
+
+.cat__section .category-container > div:hover > svg {
     transform: scale(1.1, 1.1);
 }
 
-.cat__section .category-container > a > svg {
+.cat__section .category-container > div > svg {
     width: 100%;
     height: auto;
     padding: 20px;
     transition: transform .2s linear;
 }
 
-.cat__section .category-container > a > svg * {
+.cat__section .category-container > div > svg * {
     fill: var(--colorMain);
 }
 
 .solo-category-container {
-    margin-top: 15px;
-    padding: 15px;
+    margin: 15px 0 50px;
     border-radius: 15px;
     background-color: var(--colorLiteMain);
     font-size: 16px;
+    background-color: var(--colorWhite);
+
+}
+
+.swiper2 {
+    width: calc(100% - 100px);
+    margin: auto;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--colorMain);
+}
+
+.block__dop_info--doctors_card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: var(--colorLiteMain);
+}  
+
+.block__dop_info--doctors_card > span{
+    color: var(--colorBlack);
+    font-weight: 600;
+    pointer-events: none;
+    border-bottom: solid #00000000 2px;
+    transition: border-color .2s linear;
+}
+
+.block__dop_info--doctors_card:hover span{
+    border-color: var(--colorMain);
+}
+
+.block__dop_info--doctors_card:hover img{
+    transform: scale(1.05, 1.05);
+}
+
+.avatat__dop_info--doctor{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    transition: transform .2s linear;
 }
 
 @media (max-width: 1280px) {
