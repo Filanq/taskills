@@ -5,6 +5,7 @@
     @vite(['resources/css/auth.css', 'resources/js/auth.js'])
 </head>
 <body>
+<div style="display: none" id="user">{{ auth()->id() }}</div>
     <main>
         <div class="forms-container">
             <form action="{{ route('register') }}" method="post">

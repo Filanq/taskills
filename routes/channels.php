@@ -15,3 +15,15 @@ use Illuminate\Support\Facades\Log;
 */
 
 Broadcast::channel('user.{sender_id}.{user_id}', \App\Broadcasting\ChatBroadcast::class);
+
+Broadcast::channel('message.{user_id}', \App\Broadcasting\ChatBroadcast::class);
+
+Broadcast::channel('callQuit.{callId}', function($callId){
+    $call = \Illuminate\Support\Facades\DB::table('calls')->where('call_id', $callId)->first();
+    return auth()->id() == $call->answer_id || auth()->id() == $call->offer_id;
+});
+
+Broadcast::channel('callCreated.{answer_id}', function($answer_id, $callId){
+    $call = \Illuminate\Support\Facades\DB::table('calls')->where('call_id', $callId)->first();
+    return auth()->id() == $call->offer_id;
+});

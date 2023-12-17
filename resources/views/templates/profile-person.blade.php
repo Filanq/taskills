@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
+<div style="display: none" id="user">{{ auth()->id() }}</div>
     <div class="section">
         <div class="container">
             <h3>Профиль</h3>
@@ -34,9 +35,13 @@
                     </table>
 
                     @if(!$is_guest)
-                        <a class="btn btn--my_info" href="#">Редактировать</a>
+                        <a class="btn btn--my_info" href="{{ route('profile.edit') }}">Редактировать</a>
                     @elseif($is_guest && auth()->check())
-                        <a class="btn btn--my_info" href="tel:+7952812">Позвонить</a>
+                        @if($call_link)
+                            <a class="btn btn--my_info" href="{{ route('call', ['answer_id' => $curr_user->id, 'offer_id' => $user->id]) }}">Ответить</a>
+                        @else
+                            <a class="btn btn--my_info" href="{{ route('call', ['offer_id' => $curr_user->id, 'answer_id' => $user->id]) }}">Позвонить</a>
+                        @endif
                     @endif
                 </div>
                 <div class="wrap__info_office">

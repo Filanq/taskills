@@ -38,6 +38,14 @@ class User extends Authenticatable
         return $user->status == 'person';
     }
 
+    static function generateRandomString($length) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        return $randomString;
+    }
     public function getFullData(){
         $data = DB::select("SELECT users.*, users_data.* FROM users, users_data WHERE users.id = users_data.user_id AND users.id = {$this->id}")[0];
         if(($favorites = $data->favorites) !== '[]' && $data->status !== 'medic') {

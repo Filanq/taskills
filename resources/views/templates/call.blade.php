@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    @vite('resources/js/call.js')
+    <x-head>Звонок</x-head>
+    @vite("resources/js/call.js")
 </head>
 <body>
-    <video src="" playsinline autoplay id="local" width="400" height="400"></video>
-    <video src="" playsinline autoplay id="remote" width="400" height="400"></video>
-
-    <button id="webcamButton">Старт</button>
-    <br><br><br>
-    <button id="callButton">Создать звонок</button>
-    <br><br><br>
-    <input type="text" id="callInput">
-    <button id="answerButton">Присоединиться</button>
+<div class="section">
+    <div style="display: none" id="user">{{ auth()->id() }}</div>
+    <input type="hidden" id="csrf" value="{{ csrf_token() }}">
+    <input type="hidden" id="callId" value="{{ $call_id }}">
+    <input type="hidden" id="offer_id" value="{{ $offer_id }}">
+    <input type="hidden" id="answer_id" value="{{ $answer_id }}">
+    <div class="container">
+        <h3>Звонок</h3>
+        <div class="wrap__call">
+            <div class="wrap__video">
+                <div class="block__video">
+                    <div class="block__persone">
+                        <img src="{{ asset('img/avatars/' . $remote_user->avatar) }}" alt="Аватар">
+                        <p>{{ $remote_user->firstname }} {{ $remote_user->surname }}</p>
+                    </div>
+                    <video id="remote" class="web__person--sobes" src="bmw-top-krutoe-i-korotkoe-video-v-instagram_(VIDEOMIN.NET).mp4" autoplay></video>
+                </div>
+                <div class="block__video block__video--my">
+                    <video id="local" class="web__person" src="Giving iPhones Instead Of Candy on Halloween.mp4" autoplay></video>
+                </div>
+            </div>
+            <div class="interactive_button">
+                <a class="web__btn web__btn--micro" href="#"></a>
+                <a class="web__btn" href="#"></a>
+                <a id="quitBtn" class="web__btn web__btn--red" href="#"></a>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

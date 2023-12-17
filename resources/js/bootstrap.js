@@ -19,6 +19,7 @@ import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 
 window.Pusher = Pusher;
+Pusher.logToConsole = true;
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
@@ -31,7 +32,15 @@ window.Echo = new Echo({
     enabledTransports: ['ws', 'wss'],
     useTLS: true
 });
-window.Echo.channel('user')
-    .listen('ChatEvent', (e) => {
-        alert("Вам написал " + e.sender_id);
-    });
+let user = document.querySelector('#user').textContent;
+if(user !== 'null'){
+    window.Echo.channel('message.' + user)
+        .listen('ChatEvent', (e) => {
+            alert("Вы получили сообщение");
+        });
+
+    window.Echo.channel('callCreated.' + user)
+        .listen('callEvent', (e) => {
+            alert("Вам звонят");
+        });
+}

@@ -3,7 +3,7 @@ import Pusher from 'pusher-js';
 
 const data = JSON.parse($("#dataForAjax").text());
 
-Pusher.logToConsole = true;
+window.Echo.leave('message.' + data.sender_id);
 window.Echo.channel('user.' + data.user_id + '.' + data.sender_id)
     .listen('ChatEvent', (res) => {
         chatBlock.append(`

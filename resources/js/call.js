@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import 'firebase/firestore';
+import $ from 'jquery';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAij6gzfKWnxqvKgegnvDfz-yLvHKfTtxI",
@@ -25,54 +26,90 @@ const servers = {
     iceCandidatePoolSize: 10,
 };
 
-// Global State
 const pc = new RTCPeerConnection(servers);
 let localStream = null;
 let remoteStream = null;
 
-// HTML elements
-const webcamButton = document.getElementById('webcamButton');
 const webcamVideo = document.getElementById('local');
-const callButton = document.getElementById('callButton');
-const callInput = document.getElementById('callInput');
-const answerButton = document.getElementById('answerButton');
-const remoteVideo = document.getElementById('remote');
-// const hangupButton = document.getElementById('hangupButton');
+const remoteVideo = document.getElementById('remote')
+// const remoteVideo = document.getElementById('remote');
+// const remoteVideo = document.getElementById('remote');
+const quitBtn = $('#quitBtn')[0];
 
-// 1. Setup media sources
+    window.onload = async () => {
+        localStream = await navigator.mediaDevices.getUserMedia({video: true, audio: true});
+        remoteStream = new MediaStream();
 
-webcamButton.onclick = async () => {
-    localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-    remoteStream = new MediaStream();
-
-    // Push tracks from local stream to peer connection
-    localStream.getTracks().forEach((track) => {
-        pc.addTrack(track, localStream);
-    });
-
-    // Pull tracks from remote stream, add to video stream
-    pc.ontrack = (event) => {
-        event.streams[0].getTracks().forEach((track) => {
-            remoteStream.addTrack(track);
+        localStream.getTracks().forEach((track) => {
+            pc.addTrack(track, localStream);
         });
-    };
 
-    webcamVideo.srcObject = localStream;
-    remoteVideo.srcObject = remoteStream;
+        pc.ontrack = (event) => {
+            event.streams[0].getTracks().forEach((track) => {
+                remoteStream.addTrack(track);
+            });
+        };
 
-    callButton.disabled = false;
-    answerButton.disabled = false;
-    webcamButton.disabled = true;
-};
+        webcamVideo.srcObject = localStream;
+        remoteVideo.srcObject = remoteStream;
 
-// 2. Create an offer
-callButton.onclick = async () => {
-    // Reference Firestore collections for signaling
+        let calldoc_id = null;
+
+        if ($('#callId').val() === '0') {
+            calldoc_id = await for_offer();
+        } else {
+            let id = $('#callId').val();
+            calldoc_id = await for_answer(id);
+        }
+
+
+            async function quit(e) {
+                await $.ajax({
+                    method: 'post',
+                    url: window.origin + '/call/quit',
+                    data: {
+                        '_token': $("#csrf").val(),
+                        'call_id': calldoc_id
+                    }
+                });
+            }
+
+            window.addEventListener('beforeunload', async function (e) {
+                await quit(e);
+                return null;
+            });
+
+            window.addEventListener('close', async function (e) {
+                await quit(e);
+                return null;
+            });
+
+            quitBtn.addEventListener('click', async function (e) {
+                e.preventDefault();
+                if (confirm('Вы хотите завершить звонок?')) {
+                    quit(e);
+                }
+            });
+            window.Echo.channel('callQuit.' + calldoc_id).listen('callQuitEvent', function (data) {
+                alert('Звонок окончен');
+                window.location.href = '/';
+            });
+    }
+async function for_offer(){
     const callDoc = firestore.collection('calls').doc();
     const offerCandidates = callDoc.collection('offerCandidates');
     const answerCandidates = callDoc.collection('answerCandidates');
 
-    callInput.value = callDoc.id;
+    await $.ajax({
+        method: 'post',
+        url: window.origin + '/call/create',
+        data: {
+            '_token': $("#csrf").val(),
+            'call_id': callDoc.id,
+            'answer_id': $("#answer_id").val(),
+            'offer_id': $("#offer_id").val()
+        }
+    });
 
     // Get candidates for caller, save to db
     pc.onicecandidate = (event) => {
@@ -109,15 +146,24 @@ callButton.onclick = async () => {
         });
     });
 
-    // hangupButton.disabled = false;
-};
+    return callDoc.id;
+}
 
 // 3. Answer the call with the unique ID
-answerButton.onclick = async () => {
-    const callId = callInput.value;
-    const callDoc = firestore.collection('calls').doc(callId);
+async function for_answer(id){
+    const callDoc = firestore.collection('calls').doc(id);
     const answerCandidates = callDoc.collection('answerCandidates');
     const offerCandidates = callDoc.collection('offerCandidates');
+
+    // await $.ajax({
+    //     method: 'post',
+    //     url: window.origin + '/call/answer',
+    //     data: {
+    //         '_token': $("#csrf").val(),
+    //         'call_id': callDoc.id,
+    //         'answer_id': $("#answerId").val()
+    //     }
+    // });
 
     pc.onicecandidate = (event) => {
         event.candidate && answerCandidates.add(event.candidate.toJSON());
@@ -147,4 +193,6 @@ answerButton.onclick = async () => {
             }
         });
     });
-};
+
+    return callDoc.id;
+}

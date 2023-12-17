@@ -6,7 +6,7 @@
     }
 
     20%{
-        transform: rotate(10deg); 
+        transform: rotate(10deg);
     }
 
     40%{
@@ -33,6 +33,7 @@
 :root {
     --colorLiteMain: #d2eaff;
     --colorMain: #349eff;
+    --colorDarkMain: #22457b;
     --colorBlack: #212121;
     --colorGrey: #5c5f63;
     --colorGreyLight: #d9d9d9;
@@ -241,7 +242,7 @@ h1::after{
 
 .step__block{
     text-align: center;
-} 
+}
 
 .step__block .btn{
     width: 100%;
@@ -268,6 +269,8 @@ h1::after{
 h3{
     font-size: 40px;
     color: var(--colorMain);
+    margin: 0;
+    margin-bottom: 30px;
 }
 
 .wrap__office{
@@ -299,7 +302,7 @@ h3{
 .my_name{
     font-size: 26px;
     margin: 10px 0;
-    
+
 }
 
 .my_avatar{
@@ -308,7 +311,7 @@ h3{
     object-fit: cover;
     object-position: center;
     border-radius: 50%;
-    pointer-events: none; 
+    pointer-events: none;
 }
 
 .wrap__my_info{
@@ -374,7 +377,7 @@ h4{
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: var(--colorMain);    
+    background-color: var(--colorMain);
 }
 
 .block__dop_info p{
@@ -383,7 +386,7 @@ h4{
 
 .wrap__dop_info--disease{
     padding: 0;
-    
+
 }
 
 .block__dop_info--disease::after{
@@ -414,7 +417,7 @@ h4{
 }
 
 .wrap__dop_info--sms::-webkit-scrollbar {
-    width: 6px;               
+    width: 6px;
 }
 
 .wrap__dop_info--sms::-webkit-scrollbar-track {
@@ -422,8 +425,8 @@ h4{
 }
 
 .wrap__dop_info--sms::-webkit-scrollbar-thumb {
-    background-color: var(--colorMain); 
-    border-radius: 30px;      
+    background-color: var(--colorMain);
+    border-radius: 30px;
 }
 
 .block__dop_info--sms{
@@ -525,7 +528,7 @@ h4{
     position: relative;
     margin: 0 !important;
     padding-right: 30px;
-}  
+}
 
 .block__dop_info--doctors_card > span::after{
     content: '';
@@ -643,6 +646,98 @@ h4{
     display: flex;
     flex-direction: column;
 }
+
+/* call */
+.wrap__call{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.wrap__video{
+    position: relative;
+}
+
+.block__video{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+.block__video--my{
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    width: 30%;
+    height: 30%;
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 8%;
+
+}
+
+.block__persone{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.block__persone > img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.block__persone > p{
+    font-size: 22px;
+    /* color: var(--colorMain); */
+    margin: 0;
+}
+
+.web__person{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.interactive_button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+}
+
+.web__btn{
+    background-color: var(--colorMain);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-image: url("../img/icons/camera.svg");
+    background-position: center;
+    background-size: 45%;
+    background-repeat: no-repeat;
+}
+
+.web__btn--red{
+    background-color: rgb(179, 12, 12);
+    background-image: url("../img/icons/call.svg");
+    transform: rotate(117deg);
+}
+
+.web__btn--micro{
+    background-image: url("../img/icons/microphone.svg");
+}
+
+.web__person--sobes{
+    width: 100%;
+    border-radius: 20px;
+}
+
 
 @media (max-width: 768px) {
     /* экран загрузки */

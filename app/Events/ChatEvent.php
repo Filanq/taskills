@@ -38,8 +38,8 @@ class ChatEvent extends Event implements ShouldBroadcast
         return ["sender_id" => $this->sender_id, "user_id" => $this->user_id, "message" => $this->message, "avatar" => $this->avatar];
     }
 
-    public function broadcastOn(): Channel
+    public function broadcastOn(): array
     {
-        return new Channel('user.' . $this->sender_id . '.' . $this->user_id);
+        return [new Channel('user.' . $this->sender_id . '.' . $this->user_id), new Channel('message.' . $this->user_id)];
     }
 }
