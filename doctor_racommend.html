@@ -44,7 +44,7 @@
                 <div class="block__office">
                     <div class="h4__and_plus">
                         <h4>История болезней</h4>
-                        <a href="#"></a>
+                        <span onclick="newFile('type1')"></span>
                     </div>
                     <div class="wrap__dop_info wrap__dop_info--disease_str">
                         <a class=" block__dop_info" href="#">
@@ -67,7 +67,7 @@
                 <div class="block__office wrap__office--refer_str">
                     <div class="h4__and_plus">
                         <h4>Справки</h4>
-                        <a href="#"></a>
+                        <span onclick="newFile('type2')"></span>
                     </div>
                     <div class="wrap__dop_info">
                         <a class="block__dop_info" href="#">
@@ -109,5 +109,28 @@
         Вам пришло уведомление! 
         <div></div>
     </a>
+
+    <div class="modal-new-file">
+        <form method="post">
+            <h2></h2>
+            <label class="input-file">
+                <input id="inputFile" type="file" required>
+                <span class="input-file-btn">Выберите файл</span>
+                <span class="selectedFile"></span> <!-- тут сделать название файла -->
+            </label>
+            <input class="input-file-submit" type="submit" value="Отправить">
+        </form> 
+    </div>
+    <div class="darker" onclick="toggleModalNewFile()"></div>
+    <script>
+        const toggleModalNewFile = () => {
+            for (const el of [['.darker', 'show-darker'], ['.modal-new-file', 'show-modal-new-file']]) $(el[0]).toggleClass(el[1]);
+        }
+        const newFile = type => {
+            $('#inputFile').attr('name', (type === 'type1') ? 'disease' : 'certificate'); // name="disease" - диагноз     name="certificate" - справка
+            $('.modal-new-file').children('form').children('h2').text((type === 'type1') ? 'Добавление диагноза' : 'Добавление справки');
+            toggleModalNewFile();
+        }   
+    </script>
 </body>
 </html>
