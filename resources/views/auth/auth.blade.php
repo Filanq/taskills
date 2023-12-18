@@ -6,6 +6,7 @@
 </head>
 <body>
 <div style="display: none" id="user">{{ auth()->id() }}</div>
+<x-header></x-header>
     <main>
         <div class="forms-container">
             <form action="{{ route('register') }}" method="post">

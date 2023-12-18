@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
-<div style="display: none" id="user">{{ auth()->id() }}</div>
+<x-header></x-header>
     <div class="section">
         <div class="container">
             <h3>Профиль</h3>
@@ -60,29 +60,39 @@
                     @endif
 
                     <div class="block__office">
-                        <h4>История болезней</h4>
+                        <div class="h4__and_all">
+                            <h4>История болезней</h4>
+                            @if(!$is_guest || ($is_curr_medic && !$is_user_medic))
+                                <a href="{{ route('profile.data', ['user' => $user->id]) }}">Все ⤴</a>
+                            @endif
+                        </div>
                         @if(!isset($logs[0]))
                             <p>Отсутствует</p>
                         @else
                             <div class="wrap__dop_info wrap__dop_info--disease">
                                 @foreach($logs as $log)
-                                    <a class=" block__dop_info block__dop_info--disease" href="#">
+                                    <span class=" block__dop_info block__dop_info--disease" href="#">
                                         <p>{{ $log->title }}</p>
                                         <span>{{ $log->date }}</span>
-                                    </a>
+                                    </span>
                                 @endforeach
                             </div>
                         @endif
                     </div>
 
                     <div class="block__office">
-                        <h4>Справки</h4>
+                        <div class="h4__and_all">
+                            <h4>Справки</h4>
+                            @if(!$is_guest || ($is_curr_medic && !$is_user_medic))
+                                <a href="{{ route('profile.data', ['user' => $user->id]) }}">Все ⤴</a>
+                            @endif
+                        </div>
                         @if(!isset($certificates[0]))
                             <p>Отсутствуют</p>
                         @else
                             <div class="wrap__dop_info">
                                 @foreach($certificates as $certificate)
-                                    <a class="block__dop_info" href="#">
+                                    <a class="block__dop_info" href="{{ route('profile.get-file', ['id' => $certificate->id]) }}">
                                         <p>{{ $certificate->title }}</p>
                                         <span>{{ $certificate->date }}</span>
                                     </a>

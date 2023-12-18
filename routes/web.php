@@ -17,10 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
-
 Route::get('/profile/{user}', [ProfileController::class, 'index'])->where(['user' => '[0-9]+'])->name('profile');
 
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::middleware('auth')->group(function(){
     Route::post('/send-message', [ChatController::class, 'send'])->name('message.send');
@@ -38,6 +37,18 @@ Route::middleware('auth')->group(function(){
     Route::post('/call/answer', [CallController::class, 'answer']);
 
     Route::post('/call/quit', [CallController::class, 'quit']);
+
+    Route::get('/profile/data/{user}', [ProfileController::class, 'data_view'])->name('profile.data');
+
+    Route::get('/profile/certificate/{id}', [ProfileController::class, 'get_file'])->name('profile.get-file');
+
+    Route::post('/profile/logs-add', [ProfileController::class, 'add_logs'])->name('profile.add-log');
+
+    Route::post('/profile/certificate-add', [ProfileController::class, 'add_certificate'])->name('profile.add-certificate');
+
+    Route::post('/profile/favorite', [ProfileController::class, 'favorite']);
+
+    Route::post('/search', [HomeController::class, 'search']);
 });
 
 require __DIR__.'/auth.php';

@@ -66,6 +66,7 @@ class User extends Authenticatable
 
     public function getFavorites(){
         $favorites = json_decode(DB::select("SELECT users_data.favorites, users_data.user_id, users.* FROM users_data, users WHERE users.id = users_data.user_id AND users_data.user_id = {$this->id}")[0]->favorites, true);
+        return $favorites;
     }
 
     public function addFavorite($id): void

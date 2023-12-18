@@ -30,37 +30,39 @@ const pc = new RTCPeerConnection(servers);
 let localStream = null;
 let remoteStream = null;
 
+window.Echo.leave('callCreated.' + $('#user').text());
+
 const webcamVideo = document.getElementById('local');
 const remoteVideo = document.getElementById('remote')
 // const remoteVideo = document.getElementById('remote');
 // const remoteVideo = document.getElementById('remote');
 const quitBtn = $('#quitBtn')[0];
 
-    window.onload = async () => {
-        localStream = await navigator.mediaDevices.getUserMedia({video: true, audio: true});
-        remoteStream = new MediaStream();
+(async () => {
+            localStream = await navigator.mediaDevices.getUserMedia({video: true, audio: true});
+            remoteStream = new MediaStream();
 
-        localStream.getTracks().forEach((track) => {
-            pc.addTrack(track, localStream);
-        });
-
-        pc.ontrack = (event) => {
-            event.streams[0].getTracks().forEach((track) => {
-                remoteStream.addTrack(track);
+            localStream.getTracks().forEach((track) => {
+                pc.addTrack(track, localStream);
             });
-        };
 
-        webcamVideo.srcObject = localStream;
-        remoteVideo.srcObject = remoteStream;
+            pc.ontrack = (event) => {
+                event.streams[0].getTracks().forEach((track) => {
+                    remoteStream.addTrack(track);
+                });
+            };
 
-        let calldoc_id = null;
+            webcamVideo.srcObject = localStream;
+            remoteVideo.srcObject = remoteStream;
 
-        if ($('#callId').val() === '0') {
-            calldoc_id = await for_offer();
-        } else {
-            let id = $('#callId').val();
-            calldoc_id = await for_answer(id);
-        }
+            let calldoc_id = null;
+
+            if ($('#callId').val() === '0') {
+                calldoc_id = await for_offer();
+            } else {
+                let id = $('#callId').val();
+                calldoc_id = await for_answer(id);
+            }
 
 
             async function quit(e) {
@@ -94,7 +96,8 @@ const quitBtn = $('#quitBtn')[0];
                 alert('Звонок окончен');
                 window.location.href = '/';
             });
-    }
+    })();
+
 async function for_offer(){
     const callDoc = firestore.collection('calls').doc();
     const offerCandidates = callDoc.collection('offerCandidates');

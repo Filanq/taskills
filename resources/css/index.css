@@ -52,7 +52,7 @@ main {
     padding: 15px;
     background-color: var(--colorLiteMain);
     border-radius: 15px;
-    z-index: 2;
+    z-index: 11;
 }
 
 .show-results {
@@ -158,7 +158,7 @@ main {
 }
 
 .swiper2-pagination {
-    bottom: -25px!important;    
+    bottom: -25px!important;
     position: absolute;
     text-align: center;
     transition: .2s opacity;
@@ -208,6 +208,15 @@ main {
 .faq__section .swiper-slide-content div:nth-child(2) > span:nth-child(2) {
     font-size: 12px;
     margin-top: 5px;
+}
+.faq__section .swiper-wrapper {
+    height: 120px;
+}
+/*.faq__section .swiper-container {*/
+/*    height: 120px;*/
+/*}*/
+.faq__section .container {
+    padding: 0;
 }
 
 .faq__section .swiper-slide-fone {
@@ -279,7 +288,7 @@ main {
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: var(--colorMain);
+    color: var(--colorMain);
 }
 
 .block__dop_info--doctors_card{
@@ -292,7 +301,7 @@ main {
     border-radius: 10px;
     text-decoration: none;
     background-color: var(--colorLiteMain);
-}  
+}
 
 .block__dop_info--doctors_card > span{
     color: var(--colorBlack);
@@ -374,5 +383,9 @@ main {
 
     .cat__section .category-container {
         --column-num: 2;
+    }
+
+    .section {
+        padding: 0 !important;
     }
 }

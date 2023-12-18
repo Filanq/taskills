@@ -40,7 +40,7 @@ class CallController extends Controller
             "offer_id" => $request->offer_id
         ]);
 
-        broadcast(new callEvent($request->answer_id, $request->call_id));
+        broadcast(new callEvent($request->answer_id, $request->call_id, $request->offer_id));
     }
     public function answer(Request $request){
         $call = DB::table('calls')->where('call_id', $request->call_id)->first();
@@ -51,7 +51,9 @@ class CallController extends Controller
         }
     }
     public function quit(Request $request){
-        DB::table('calls')->where('call_id', $request->call_id)->delete();
-        broadcast(new callQuitEvent($request->call_id));
+        if(DB::table('calls')->where('call_id', $request->call_id)->first()){
+            DB::table('calls')->where('call_id', $request->call_id)->delete();
+            broadcast(new callQuitEvent($request->call_id));
+        }
     }
 }

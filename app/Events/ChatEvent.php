@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Broadcasting\ChatBroadcast;
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -25,17 +26,20 @@ class ChatEvent extends Event implements ShouldBroadcast
     public $user_id = 0;
     public $sender_id = 0;
     public $avatar = '';
+    public $sender_name = '';
     public function __construct($message, $user_id, $sender_id)
     {
         $this->user_id = $user_id;
         $this->sender_id = $sender_id;
         $this->message = $message;
         $this->avatar = DB::table('users_data')->where('user_id', $this->sender_id)->first()->avatar;
+        $this->sender_name = User::find($sender_id);
+        $this->sender_name = $this->sender_name->firstname . ' ' . $this->sender_name->surname;
     }
 
     public function broadcastWith(): array
     {
-        return ["sender_id" => $this->sender_id, "user_id" => $this->user_id, "message" => $this->message, "avatar" => $this->avatar];
+        return ["sender_id" => $this->sender_id, "user_id" => $this->user_id, "message" => $this->message, "sender_name" => $this->sender_name, "avatar" => $this->avatar];
     }
 
     public function broadcastOn(): array

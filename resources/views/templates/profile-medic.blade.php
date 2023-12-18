@@ -3,9 +3,10 @@
 <head>
     <x-head>{{ $user->firstname }} {{ $user->surname }}</x-head>
     @vite('resources/js/chat.js')
+    @vite('resources/js/profile-doctor.js')
 </head>
 <body>
-<div style="display: none" id="user">{{ auth()->id() }}</div>
+<x-header></x-header>
     <div class="section">
         <div class="container">
             <h3>Профиль доктора</h3>
@@ -44,33 +45,53 @@
                         @else
                             <a class="btn btn--my_info" href="{{ route('call', ['offer_id' => $curr_user->id, 'answer_id' => $user->id]) }}">Позвонить</a>
                         @endif
+
+                        @if(auth()->user()->status != 'medic')
+                            @if($favorited)
+                                <a id="favor_btn" class="btn btn--my_info">Удалить из избранного</a>
+                            @else
+                               <a id="favor_btn" class="btn btn--my_info">Добавить в избранное</a>
+                            @endif
+                        @endif
                     @endif
+                    <input type="hidden" id="user_id" value="{{ $user->id }}">
+                    <input type="hidden" id="csrf" value="{{ csrf_token() }}">
                 </div>
                 <div class="wrap__info_office">
                     <div class="block__office">
-                        <h4>История болезней</h4>
+                        <div class="h4__and_all">
+                            <h4>История болезней</h4>
+                            @if(!$is_guest)
+                                <a href="{{ route('profile.data', ['user' => $user->id]) }}">Все ⤴</a>
+                            @endif
+                        </div>
                         @if(!isset($logs[0]))
                             <p>Отсутствует</p>
                         @else
                             <div class="wrap__dop_info wrap__dop_info--disease">
                                 @foreach($logs as $log)
-                                    <a class=" block__dop_info block__dop_info--disease" href="#">
+                                    <span class=" block__dop_info block__dop_info--disease" href="#">
                                         <p>{{ $log->title }} ({{ $log->firstname }} {{ $log->surname }})</p>
                                         <span>{{ $log->date }}</span>
-                                    </a>
+                                    </span>
                                 @endforeach
                             </div>
                         @endif
                     </div>
 
                     <div class="block__office">
-                        <h4>Справки</h4>
+                        <div class="h4__and_all">
+                            <h4>Справки</h4>
+                            @if(!$is_guest)
+                                <a href="{{ route('profile.data', ['user' => $user->id]) }}">Все ⤴</a>
+                            @endif
+                        </div>
                         @if(!isset($certificates[0]))
                             <p>Отсутствуют</p>
                         @else
                             <div class="wrap__dop_info">
                                 @foreach($certificates as $certificate)
-                                    <a class="block__dop_info" href="#">
+                                    <a class="block__dop_info" href="{{ route('profile.get-file', ['id' => $certificate->id]) }}">
                                         <p>{{ $certificate->title }} ({{ $certificate->firstname }} {{ $certificate->surname }})</p>
                                         <span>{{ $certificate->date }}</span>
                                     </a>

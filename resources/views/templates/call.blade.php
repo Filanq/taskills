@@ -5,6 +5,7 @@
     @vite("resources/js/call.js")
 </head>
 <body>
+<x-header></x-header>
 <div class="section">
     <div style="display: none" id="user">{{ auth()->id() }}</div>
     <input type="hidden" id="csrf" value="{{ csrf_token() }}">
@@ -20,15 +21,15 @@
                         <img src="{{ asset('img/avatars/' . $remote_user->avatar) }}" alt="Аватар">
                         <p>{{ $remote_user->firstname }} {{ $remote_user->surname }}</p>
                     </div>
-                    <video id="remote" class="web__person--sobes" src="bmw-top-krutoe-i-korotkoe-video-v-instagram_(VIDEOMIN.NET).mp4" autoplay></video>
+                    <video id="remote" class="web__person--sobes" autoplay></video>
                 </div>
                 <div class="block__video block__video--my">
-                    <video id="local" class="web__person" src="Giving iPhones Instead Of Candy on Halloween.mp4" autoplay></video>
+                    <video id="local" class="web__person" autoplay></video>
                 </div>
             </div>
             <div class="interactive_button">
-                <a class="web__btn web__btn--micro" href="#"></a>
-                <a class="web__btn" href="#"></a>
+{{--                <a class="web__btn web__btn--micro" href="#"></a>--}}
+{{--                <a class="web__btn" href="#"></a>--}}
                 <a id="quitBtn" class="web__btn web__btn--red" href="#"></a>
             </div>
         </div>

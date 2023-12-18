@@ -17,10 +17,13 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
+import $ from 'jquery';
 
 window.Pusher = Pusher;
 Pusher.logToConsole = true;
-
+window.onload = ()=>{
+    document.querySelector('.loading__section').remove();
+}
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: import.meta.env.VITE_PUSHER_APP_KEY,
@@ -32,15 +35,21 @@ window.Echo = new Echo({
     enabledTransports: ['ws', 'wss'],
     useTLS: true
 });
-let user = document.querySelector('#user').textContent;
+
+let user = $('#user').text();
+let notification = $('.notification');
 if(user !== 'null'){
     window.Echo.channel('message.' + user)
         .listen('ChatEvent', (e) => {
-            alert("Вы получили сообщение");
+            notification.addClass('notification_active');
+            notification[0].href = window.origin + '/profile/' + e.sender_id;
+            notification[0].childNodes[0].textContent = `${e.sender_name}: ${e.message}`;
         });
 
     window.Echo.channel('callCreated.' + user)
         .listen('callEvent', (e) => {
-            alert("Вам звонят");
+            notification.addClass('notification_active');
+            notification[0].href = e.link;
+            notification[0].childNodes[0].textContent = `Вам поступил звонок от: ${e.name}`;
         });
 }

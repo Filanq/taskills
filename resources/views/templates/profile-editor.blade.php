@@ -6,6 +6,7 @@
     @vite('resources/js/profile-edit.js')
 </head>
 <body>
+<x-header></x-header>
     <div class="section">
         <div class="container">
             <h3>Редактировать профиль</h3>
@@ -21,10 +22,6 @@
                         <tr>
                             <th class="info__th">Пол</th>
                             <td class="info__td">{{ $user->sex }}</td>
-                        </tr>
-                        <tr>
-                            <th class="info__th">Семейное положение</th>
-                            <td class="info__td">{{ $user->status }}</td>
                         </tr>
                         <tr>
                             <th class="info__th">Местоположение</th>
@@ -73,6 +70,7 @@
                                 <div>
                                     <label class="label_btn_input" for="gender">Пол</label>
                                     <select name="sex" class="btn_input" id="sex">
+                                        <option value="">Выберете пол</option>
                                         <option @if($user->sex == 'Мужской') selected @endif value="Мужской">Мужской</option>
                                         <option @if($user->sex == 'Женский') selected @endif value="Женский">Женский</option>
                                     </select>
@@ -81,6 +79,7 @@
                                     <div>
                                         <label class="label_btn_input" for="status">Семейное положение</label>
                                         <select class="btn_input" name="status" id="status">
+                                            <option value="">Выберете статус</option>
                                             <option @if($user->status == 'Женат/Замужем') selected @endif value="Женат/Замужем">Женат/Замужем</option>
                                             <option @if($user->status == 'Свободен(-а)') selected @endif value="Свободен(-а)">Свободен(-а)</option>
                                         </select>
@@ -93,7 +92,7 @@
                                     </div>
                                     <div>
                                         <label class="label_btn_input" for="graphic">График</label>
-                                        <input class="btn_input" name="graphic" id="graphic" type="text" placeholder="Пн, Ср, Пт">
+                                        <input class="btn_input" name="graphic" value="{{ $user->graphic }}" id="graphic" type="text" placeholder="Пн, Ср, Пт">
                                     </div>
                                 @endif
 
