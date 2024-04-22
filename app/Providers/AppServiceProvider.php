@@ -11,7 +11,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        define("__PROJECTDIR__", '/home/u227548/skills.junior-it.ru/www/');
+        define("__PROJECTDIR__", 'C:\\Users\\vlad\\Documents\\GitHub\\taskills\\');
     }
 
     /**
