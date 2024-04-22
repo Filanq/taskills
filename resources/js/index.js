@@ -101,3 +101,5 @@ window.addEventListener('DOMContentLoaded', function(){
         }
     });
 });
+
+jQuery(".category-text").fitText(.7, { maxFontSize: '15vw' });

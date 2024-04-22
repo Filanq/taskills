@@ -24,7 +24,7 @@
 .section {
     display: flex;
     justify-content: center;
-    padding: 10px 10%;
+    padding: 10px 0;
     width: 100%
 }
 
@@ -338,4 +338,10 @@ form > button:hover svg * {
     top: 0;
     left: 0;
     z-index: 999;
+}
+
+@media (max-width: 624px) {
+    header, main {
+        padding: 0 5%!important;
+    }
 }
