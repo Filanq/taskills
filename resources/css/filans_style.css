@@ -1,0 +1,35 @@
+/*.profile__container-buttons{*/
+/*    display: flex;*/
+/*    width: 100%;*/
+/*}*/
+/*.btn_favorite{*/
+/*    display: block;*/
+/*    margin-left: 10px;*/
+/*    position: relative;*/
+/*    padding: 5px;*/
+/*    background-color: var(--colorWhite);*/
+/*}*/
+/*.btn_favorite:hover{*/
+/*     background-color: var(--colorDarkMain);*/
+/* }*/
+/*.btn_favorite_active:hover{*/
+/*    background-color: var(--colorWhite);*/
+/*}*/
+/*.btn_favorite_active:hover svg{*/
+/*    background-color: var(--colorWhite);*/
+/*    stroke: var(--colorDarkMain);*/
+/*}*/
+/*.btn_favorite_active{*/
+/*    background-color: var(--colorDarkMain);*/
+/*}*/
+/*.btn_favorite svg{*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*    fill: var(--colorWhite);*/
+/*}*/
+/*.btn_favorite:hover svg{*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*    fill: none;*/
+/*    stroke: var(--colorDarkMain);*/
+/*}*/
