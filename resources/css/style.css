@@ -25,12 +25,12 @@
     display: flex;
     justify-content: center;
     padding: 10px 0;
-    width: 100%
+    width: 100%;
 }
 
 .container {
-    width: 100%;
-    max-width: 1024px;
+    width: 1024px;
+    max-width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
 }
@@ -139,7 +139,9 @@ form > div .text-password__label {
     /*z-index: 1;*/
     /*user-select: none;*/
     /*pointer-events: none;*/
-    margin: 10px 0;
+    font-size: 16px;
+    margin: 10px 0 2px;
+    opacity: 0.8;
 }
 
 form > div input:not(:placeholder-shown) ~ .text-password__label,
@@ -156,16 +158,22 @@ form > div.textarea-container__div textarea:focus ~ .text-password__label {
     color: var(--colorMain);
 }
 
+select,
 form > div input,
 form > div.textarea-container__div textarea {
     width: inherit;
     padding: 10px 5px;
     border-radius: var(--borderRadiusSmall);
-    font-size: 20px;
+    font-size: 18px;
     border: none;
     outline: solid var(--colorGreyLight) 2px;
     transition: outline-color .2s linear;
 }
+
+/* form > div input::placeholder,
+form > div.textarea-container__div textarea::placeholder {
+    font-size: 18px;
+} */
 
 form > div input:focus,
 form > div.textarea-container__div textarea:focus {

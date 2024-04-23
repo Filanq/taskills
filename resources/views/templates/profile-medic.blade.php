@@ -7,7 +7,7 @@
 </head>
 <body>
 <x-header></x-header>
-    <div class="section">
+    <div class="section doctor__section">
         <div class="container">
             <h3>Профиль доктора</h3>
             <div class="wrap__office">

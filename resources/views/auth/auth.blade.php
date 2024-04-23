@@ -12,7 +12,7 @@
             <form action="{{ route('register') }}" method="post">
                 @csrf
                 <h2 class="title">Создайте аккаунт</h2>
-                <p>Добро пожаловать! Создайте аккаунт для получения доступа к услугам сайта</p>
+                <p>Добро пожаловать! Создайте аккаунт для получения доступа к услугам сайта.</p>
                 <div>
                     <label for="reg-sername__input" class="text-password__label">Фамилия</label>
                     <input id="reg-sername__input" value="{{ old('surname') }}" name="surname" type="text" placeholder="Введите свою фамилию" required>
