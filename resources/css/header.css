@@ -8,6 +8,8 @@ header {
     padding: 0 10%;
     background-color: var(--colorWhite);
     z-index: 2;
+    /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
+    
 }
 
 .header-container {
@@ -157,7 +159,6 @@ header {
     .header-menu__nav {
         position: fixed;
         inset: 75px -150px auto auto;
-        width: 150px;
         border-radius: 6px;
         transition: inset .2s linear;
         z-index: 2;
@@ -176,7 +177,7 @@ header {
 
     .header-menu__nav > ul > li > a {
         display: block;
-        padding: 10px;
+        padding: 10px 20px;
         background-color: var(--colorLiteMain);
         transition: all .2s linear;
     }

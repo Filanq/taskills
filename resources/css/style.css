@@ -5,6 +5,16 @@
     font-family: 'Inter', sans-serif;
 }
 
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--colorMain);
+    border-radius: 5px;
+    border: 3px solid var(--colorWhite);
+}
+
 :root {
     --colorDarkMain: #22457b;
     --colorMain: #349eff;

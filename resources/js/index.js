@@ -5,11 +5,34 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+const swiper2 = new Swiper(".swiper2", {
+    modules: [Navigation, Pagination, Autoplay],
+    speed: 500,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper2-pagination',
+        clickable: true,
+    },
+    breakpoints: {
+        1280: { slidesPerView: 6 },
+        1050: { slidesPerView: 5 },
+        880: { slidesPerView: 4 },
+        700: { slidesPerView: 3 },
+        520: { slidesPerView: 2 },
+        0: { slidesPerView: 1 },
+    }
+});
+
 $('.category-card').on('click', function() {
     $('.category-title').text($(this).children('span').text());
     $('.category-card').removeClass('selected-category');
     $(this).addClass('selected-category');
-    $('.wrap__dop_info--doctors_card').html('');
+    $('.wrap__dop_info--doctors_card').empty();
     Array.from($('#block-' + $(this)[0].id)[0].children).forEach(e => {
         // $('.category-card').children('span').text(e.textContent)
         $('.wrap__dop_info--doctors_card').append(`
@@ -18,9 +41,10 @@ $('.category-card').on('click', function() {
                 <span>${e.textContent}</span>
             </a>
         `);
+        swiper2.update();
     });
 });
-$('.selected-category').click()
+$('.selected-category').click();
 
 $('.request__input').on({
     focus: () => { if ($('.request__input').val() !== '') $('.results').addClass('show-results'); },
@@ -64,42 +88,18 @@ $('#search-form').on('submit', (e) => {
 
 });
 
-window.addEventListener('DOMContentLoaded', function(){
-    new Swiper('.swiper1', {
-        modules: [Navigation, Pagination, Autoplay],
-        speed: 500,
-        autoplay: {
-            delay: 7000,
-        },
-        spaceBetween: 10,
-        pagination: {
-            el: '.pag1',
-            clickable: true,
-            enabled: true
-        },
-    });
-    new Swiper(".swiper2", {
-        modules: [Navigation, Pagination, Autoplay],
-        speed: 500,
-        slidesPerView: 5,
-        spaceBetween: 20,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper2-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            1280: { slidesPerView: 6 },
-            1050: { slidesPerView: 5 },
-            880: { slidesPerView: 4 },
-            700: { slidesPerView: 3 },
-            520: { slidesPerView: 2 },
-            0: { slidesPerView: 1 },
-        }
-    });
+new Swiper('.swiper1', {
+    modules: [Navigation, Pagination, Autoplay],
+    speed: 500,
+    autoplay: {
+        delay: 7000,
+    },
+    spaceBetween: 10,
+    pagination: {
+        el: '.pag1',
+        clickable: true,
+        enabled: true
+    },
 });
 
 jQuery(".category-text").fitText(.7, { maxFontSize: '15vw' });

@@ -55,6 +55,10 @@ main {
     z-index: 11;
 }
 
+.search__section form .results::-webkit-scrollbar-thumb {
+    border-color: var(--colorLiteMain);
+}
+
 .show-results {
     display: block!important;
 }
@@ -158,12 +162,20 @@ main {
 }
 
 .swiper2-pagination {
-    bottom: -25px!important;
+    bottom: 2.5px!important;
     position: absolute;
     text-align: center;
     transition: .2s opacity;
     transform: translate3d(0,0,0);
     z-index: 1;
+}
+
+.swiper-button-prev {
+    left: -40px;
+}
+
+.swiper-button-next {
+    right: -40px;
 }
 
 .faq__section .swiper-slide {
@@ -272,14 +284,14 @@ main {
     border-radius: 10px;
 }
 
-.cat__section .category-container > div:hover > span {
+/* .cat__section .category-container > div:hover > span {
     background-color: var(--colorWhite);
-}
+} */
 
 .cat__section .category-container > div > span {
     padding: 5px;
     border-radius: 10px;
-    background-color: var(--colorLiteMain);
+    background-color: var(--colorWhite);
     transition: all .2s linear;
 }
 
@@ -289,7 +301,7 @@ main {
 }
 
 .selected-category > span {
-    background-color: var(--colorWhite)!important;
+    background-color: var(--colorLiteMain)!important;
 }
 
 .cat__section .category-container > div > div > svg {
@@ -412,7 +424,15 @@ main {
     }
 
     .swiper2 {
-        width: 100%;
+        width: calc(100% - 50px);
+    }
+
+    .swiper-button-prev {
+        left: -15px;
+    }
+    
+    .swiper-button-next {
+        right: -15px;
     }
 }
 

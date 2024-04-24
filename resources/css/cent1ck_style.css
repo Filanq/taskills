@@ -304,7 +304,7 @@ h3{
 
 .block__office{
     border-radius: 30px;
-    padding: 20px 20px 10px!important;
+    padding: 20px 20px 15px!important;
     box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
     height: fit-content;
 }
@@ -519,11 +519,10 @@ h4{
     padding-bottom: 10px;
     height: fit-content !important;
     cursor: pointer;
-    position: relative
+    position: relative;
 }
 
 .block__dop_info--doctors_card{
-    width: fit-content !important;
     display: flex !important;
     flex-direction: column;
     align-items: center;
@@ -972,6 +971,10 @@ h4{
         display: flex;
         justify-content: center;
         padding: 0 3%;
+    }
+
+    .loading__container > h1 {
+        font-size: 0;
     }
 }
 
