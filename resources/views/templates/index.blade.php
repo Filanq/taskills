@@ -106,7 +106,7 @@
                 <div class="solo-category-container swiper-container">
                     <div class="swiper swiper2 block__office ">
                         <h2 class="category-title">Окулист</h2>
-                        <div class="swiper-wrapper wrap__dop_info--doctors_card">
+                        <div class="swiper-wrapper wrap__dop_info--doctors_card wrap__dop_info--doctors_card-main_page">
                         </div>
                     </div>
                     <div class="swiper-button-prev"></div>

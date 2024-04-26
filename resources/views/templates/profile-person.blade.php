@@ -46,11 +46,11 @@
                 </div>
                 <div class="wrap__info_office">
                     @if(!is_string($user->favorites))
-                        <div class="swiper mySwiper block__office">
+                        <div class="block__office">
                             <h4>Врачи</h4>
-                            <div class="swiper-wrapper wrap__dop_info--doctors_card">
+                            <div class="wrap__dop_info--doctors_card">
                                 @foreach($user->favorites as $favorite)
-                                    <a class="swiper-slide block__dop_info--doctors_card" href="{{ route('profile', ['user' => $favorite->user_id]) }}">
+                                    <a class="block__dop_info--doctors_card" href="{{ route('profile', ['user' => $favorite->user_id]) }}">
                                         <img class="avatat__dop_info--doctor" src="{{ asset('img/avatars/' . $favorite->avatar) }}" alt="doctor_photo">
                                         <span>{{ $favorite->specialization }}</span>
                                     </a>
@@ -58,7 +58,6 @@
                             </div>
                         </div>
                     @endif
-
                     <div class="block__office">
                         <div class="h4__and_all">
                             <h4>История болезней</h4>

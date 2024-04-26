@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -52,13 +53,13 @@ class User extends Authenticatable
             $query = 'SELECT users.*, users_data.* FROM users, users_data WHERE users.id = users_data.user_id';
             foreach(json_decode($favorites, true) as $key => $favorite){
                 if($key == 0){
-                    $query .= " AND users.id = $favorite";
+                    $query .= " AND (users.id = $favorite";
                     continue;
                 }
                 $query .= " OR users.id = $favorite";
             }
 
-            $data->favorites = DB::select($query);
+            $data->favorites = DB::select($query . ')');
         }
 
         return $data;
